@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Vokabulator</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="icon" href="assets/AnneFrankSchule-Bargteheide_Vokabulator_Logo_03022021.png">
+        <div class="navbar">
+            <div class="icon"></div>
+            <div class="headline-div"><a href="Vokabulator.html" class="font">Vokabulator</a></div>
+            <div class="placeholder"></div>
+            <div class="navbar_btn-div">
+                <button class="fra-deu sprache btn-nav">Französisch - Deutsch</button>
+                <button class="spa-deu sprache btn-nav">Spanisch - Deutsch</button>
+                <button class="ita-deu sprache btn-nav">Italienisch -  Deutsch</button>
+                <button class="eng-deu sprache btn-nav choosen">Englisch - Deutsch</button>
+            </div>
+        </div>
+    </head>
+    <body>
+        <div class="placeholder_body">
+            <div class="navigation-btn-div">
+                <button class="navigation-btn btn" onclick="goBack()">Zurück</button>
+                <button class="swap-btn btn" onclick="swap()">Eng -> Deu</button>
+        </div>
+        </div>
+        <div class="lernen-div">
+            <div class="lernen1">
+                <div class="lernen-headline"><p>Deutsch</p></div>
+                <div class="vokabelline-div"><p id="lernenVokabelDeu"></p></div>
+            </div>
+            <div class="lernen2">
+                <div class="lernen-headline"><p>Englisch</p></div>
+                <div class="inputline-div"><input type="text" id="lernenVokabelInput"><button onclick="correct()">></button></div>
+            </div>
+        </div>
+        <div id=winner class="winner">
+            <div class="result-div">
+                <p style="font-size: 42px; font-weight: 500; text-decoration: underline;">Right!</p>
+                <p style="font-size: 24px;">You got it!</p>
+            </div>    
+        </div>
+        <div id="looser" class="looser">
+            <div class="result-div">
+                <p style="font-size: 42px; font-weight: 500; text-decoration: underline;">Wrong!</p>
+                <p style="font-size: 24px;">Try it next Time</p>
+            </div> 
+        </div>
+    </body>
+    <script>
+
+        let index = 0;
+
+
+        getVokabel()
+
+        function goBack(){
+            window.location.href ="Vokabulator.html"
+        }
+        function swap(){
+            window.location.href ="lernen-engDeu.html"
+        }
+        function getVokabel(){
+            let lernenVokabelDeu = localStorage.getItem('ListdeuEng').split(",");
+            index = Math.floor(Math.random()*lernenVokabelDeu.length);
+            document.getElementById('lernenVokabelDeu').innerHTML = lernenVokabelDeu[index];
+        }
+        function correct(){
+            let lernenVokabelEng = localStorage.getItem('ListEng').split(",");
+
+            let vokabelInput = document.getElementById('lernenVokabelInput').value;
+            let correctTranslation = lernenVokabelEng[index];
+
+            if(vokabelInput ==  correctTranslation){
+                document.getElementById('winner').style.display = "block";
+                setTimeout(()=>{document.getElementById('winner').style.display = "none";},3000); 
+                document.getElementById('lernenVokabelInput').value = "";
+                getVokabel();
+            } else{
+                document.getElementById('looser').style.display = "block";
+                setTimeout(()=>{document.getElementById('looser').style.display = "none";},3000); 
+                document.getElementById('lernenVokabelInput').value = "";
+                getVokabel();
+            }
+        }
+    </script>
+</html>

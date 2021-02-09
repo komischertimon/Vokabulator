@@ -1,0 +1,242 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.font{
+    color: white;
+    text-decoration: none;
+}
+.choosen{
+    background-color: rgb(232, 213, 0) !important;
+}
+.btn:hover{
+    background-color: lightgrey;
+}
+.btn-yellow:hover{
+ background-color: rgb(185, 170, 0);
+}
+.btn-nav{
+    border-radius: 8px;
+}
+.btn-nav:hover{
+    background-color: rgba(232, 213, 0, 0.61);
+    
+}
+.navbar{
+    height: 13vh;
+    width: 100vw;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    background-color: rgb(98, 209, 75);
+}
+.icon{
+    width: 10vw;
+    height: 100%;
+    background-image: url(assets/AnneFrankSchule-Bargteheide_Vokabulator_Logo_ohneSchrift.png);
+    background-size: cover;
+    background-position: center;
+}
+.headline-div{
+    width: 10vw;
+    font-size: 32px;
+    font-weight: 500;
+}
+.placeholder{
+    width: 45vw;
+}
+.navigation-btn-div{
+    max-height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    margin-right: 5vw;
+}
+.navigation-btn{
+    width: 100;
+    height: 56px;
+    font-size: 18px;
+    border: none;
+    box-shadow: 3px 4px 4px grey;
+}
+.swap-btn{
+    width: 100;
+    margin-top: 5px;
+    padding: 3px;
+    font-size: 16px;
+    border: none;
+    box-shadow: 3px 4px 4px grey;
+}
+.navbar_btn-div{
+    height: 60%;
+    width: 55vw;
+    display: flex;
+    flex-flow: row;
+}
+.sprache{
+    font-size: 18px;
+    margin-right: 25px;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+.placeholder_body{
+    width: 100vw;
+    height: 25vh;
+    display: flex;
+    align-items: center;
+}
+.input-line-div{
+    width: 100vw;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+    .input-line-div input{
+        line-height: 32px;
+        width: 18vw;
+        font-size: 18px;
+    }
+    .input-right{
+        margin-left: 5vw;
+    }
+    .input-left{
+
+    }
+.confirm-btn{
+    padding: 5px;
+    margin-left: 20px;
+    background-color: rgb(232, 213, 0);
+    border: none;
+    box-shadow: 3px 4px 4px grey;
+}
+.vokabeln-div{
+    width: 100vw;
+    min-height: 50vw;
+    margin-top: 5vh;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+}
+.verzeichnis{
+    width: 40vw;
+    min-height: 25vh;
+    background-color: whitesmoke;
+}
+.headline-vokabeln-div{
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    text-decoration: underline;
+    margin-top: 10px;
+}
+.lernen-div{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+}
+.lernen-headline{
+    display: flex;
+    justify-content: center;
+    margin-top: 12%;
+    color: white;
+    font-size: 36px;
+    font-weight: 600;
+    text-decoration: underline;
+}
+.lernen1{
+    height: 60vh;
+    width: 35vw;
+    background-color: grey;
+}   
+.vokabelline-div{
+    width: 100%;
+    margin-top: 25%;
+    display: flex;
+    justify-content: center;
+}
+    .vokabelline-div p{
+        font-size: 28px;
+        color: white;
+    }
+.lernen2{
+    height: 60vh;
+    width: 35vw;
+    background-color: grey;
+} 
+.inputline-div{
+    width: 100%;
+    margin-top: 25%;
+    display: flex;
+    justify-content: center;
+}
+    .inputline-div input{
+        width: 50%;
+        line-height: 28px;
+        font-size: 18px;
+        border: none;
+        border-radius: 4px;
+    }
+    .inputline-div button{
+        width: 28px;
+        margin-left: 2px;
+        border: none;
+        border-radius: 4px;
+        font-size: 18px;
+    }   
+    .inputline-div button:hover{
+        background-color: lightgrey;
+    }   
+    .List{
+        width: 100%;
+        margin-top: 20px;
+
+    }
+    .List li{
+        width: 90%;
+        font-size: 26px;
+        margin-left: 10%;
+        padding: 4px;
+        list-style: none;
+    }
+    .edit{
+        width: 24px;
+        height: 24px;
+        font-size: 16px;
+        float: right;
+        margin-right: 25px;
+        background-color: rgb(235, 235, 235);
+        border: none;
+        border-radius: 4px;
+        box-shadow: 4px 4px 2px grey;
+    }
+    .winner, .looser{
+        display: none;
+        top: 40%;
+        left: 35%;
+        width: 30%;
+        height: 20%;
+        position: absolute;
+        border: none;
+        border-radius: 4px;
+    }
+    .winner{
+        background-color: rgba(0, 250, 0, 0.8);
+    }
+    .looser{
+        background-color: rgba(250, 0, 0, 0.8);
+    }
+    .result-div{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+    }
+    .winner p, .looser p{
+        color: white;
+
+    }
+    

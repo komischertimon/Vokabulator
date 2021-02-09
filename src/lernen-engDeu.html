@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Vokabulator</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="icon" href="assets/AnneFrankSchule-Bargteheide_Vokabulator_Logo_03022021.png">
+        <div class="navbar">
+            <div class="icon"></div>
+            <div class="headline-div"><a href="Vokabulator.html" class="font">Vokabulator</a></div>
+            <div class="placeholder"></div>
+            <div class="navbar_btn-div">
+                <button class="lat-deu sprache btn-nav">Latein - Deutsch</button>
+                <button class="jap-deu sprache btn-nav">Japanisch - Deutsch</button>
+                <button class="chi-deu sprache btn-nav">Chinesisch - Deutsch</button>
+                <button class="rus-deu sprache btn-nav">Russisch - Deutsch</button>
+                <button class="fra-deu sprache btn-nav">Französisch - Deutsch</button>
+                <button class="spa-deu sprache btn-nav">Spanisch - Deutsch</button>
+                <button class="ita-deu sprache btn-nav">Italienisch -  Deutsch</button>
+                <button class="eng-deu sprache btn-nav choosen">Englisch - Deutsch</button>
+            </div>
+        </div>
+    </head>
+    <body>
+        <div class="placeholder_body">
+            <div class="navigation-btn-div">
+                <button class="navigation-btn" onclick="goBack()">Zurück</button>
+                <button class="swap-btn btn" onclick="swap()">Deu -> Eng</button>
+        </div>
+        </div>
+        <div class="lernen-div">
+            <div class="lernen1">
+                <div class="lernen-headline"><p>Deutsch</p></div>
+                <div class="inputline-div"><input type="text" id="lernen-vokabel-input"><button>></button>
+                </div>
+            </div>
+            <div class="lernen2">
+                <div class="lernen-headline"><p>Englisch</p></div>
+                <div class="vokabelline-div"><p id="lernen-vokabel-eng"></p></div>
+
+            </div>
+        </div>
+    </body>
+    <script>
+        function goBack(){
+            window.location.href ="Vokabulator.html"
+        }
+        function swap(){
+            window.location.href ="lernen-deuEng.html"
+        }
+    </script>
+</html>
