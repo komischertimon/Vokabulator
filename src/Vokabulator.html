@@ -1,107 +1,122 @@
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>Vokabulator</title>
-        <link rel="stylesheet" href="stylesheet.css">
-        <link rel="icon" href="assets/AnneFrankSchule-Bargteheide_Vokabulator_Logo_03022021.png">
-        <div class="navbar">
-            <div class="icon"></div>
-            <div class="headline-div"><a href="Vokabulator.html" class="font">Vokabulator</a></div>
-            <div class="placeholder"></div>
-            <div class="navbar_btn-div">
-                <button class="fra-deu sprache btn-nav">Französisch - Deutsch</button>
-                <button class="spa-deu sprache btn-nav">Spanisch - Deutsch</button>
-                <button class="ita-deu sprache btn-nav">Italienisch -  Deutsch</button>
-                <button class="eng-deu sprache btn-nav choosen">Englisch - Deutsch</button>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Vokabulator</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="lolli-func.js"></script>
+    <link rel="icon" href="assets/AnneFrankSchule-Bargteheide_Vokabulator_Logo_03022021.png">
+    <div class="navbar">
+        <div class="icon"></div>
+        <div class="headline-div"><a href="Vokabulator.html" class="font">Vokabulator</a></div>
+        <div class="placeholder"></div>
+        <div class="lolli-count-div">
+            <div class="lolli-count">
+                <p id="lolli-count"></p>
             </div>
+            <div class="lolli-png"></div>
         </div>
-    </head>
-    <body>
-        <div class="placeholder_body">
-            <div class="navigation-btn-div"><button class="navigation-btn" onclick="openLearn()">Lernen</button></div>
+        <div class="navbar_btn-div">
+            <button class="fra-deu sprache btn-nav">Französisch - Deutsch</button>
+            <button class="spa-deu sprache btn-nav">Spanisch - Deutsch</button>
+            <button class="ita-deu sprache btn-nav">Italienisch - Deutsch</button>
+            <button class="eng-deu sprache btn-nav choosen">Englisch - Deutsch</button>
         </div>
-        <div class="input-line-div">
-            <input type="text" id="input-left" placeholder="Deutsch" class="input-left">
-            <input type="text" id="input-right" placeholder="Englisch" class="input-right">
-            <button class="confirm-btn btn-yellow" onclick="vokabelToDB(); updateLeftList(); updateRightList()">confirm</button>
+    </div>
+</head>
+
+<body>
+    <div class="placeholder_body">
+        <div class="navigation-btn-div">
+            <p>Vokabelheft</p><button class="navigation-btn btn" onclick="openLearn()">Lernen</button>
         </div>
-        <div class="vokabeln-div">
-            <div class="vokabel-left verzeichnis">
-                <div class="headline-vokabeln-div">Deutsch</div>
-                    <table id="ListdeuEng" class="List"></table>
-            </div>
-            <div class="vokabel-right verzeichnis">
-                <div class="headline-vokabeln-div">Englisch</div>
-                <table id="ListEng" class="List"></table>
-            </div>
+    </div>
+    <div class="input-line-div">
+        <input type="text" id="input-left" placeholder="Deutsch" class="input-left">
+        <input type="text" id="input-right" placeholder="Englisch" class="input-right">
+        <button class="confirm-btn btn-yellow" onclick="vokabelToDB(); updateLeftList(); updateRightList()">></button>
+    </div>
+    <div class="vokabeln-div">
+        <div class="vokabel-left verzeichnis">
+            <div class="headline-vokabeln-div">Deutsch</div>
+            <table id="ListdeuEng" class="List"></table>
         </div>
-    </body>
-    <script>
+        <div class="vokabel-right verzeichnis">
+            <div class="headline-vokabeln-div">Englisch</div>
+            <table id="ListEng" class="List"></table>
+        </div>
+    </div>
+</body>
+<script>
 
-        let vokabelListdeuEng = getLeftListFromLocalStorage();
-        let vokabelListEng = getRightListFromLocalStorage();
+    let vokabelListdeuEng = getLeftListFromLocalStorage();
+    let vokabelListEng = getRightListFromLocalStorage();
 
-        updateRightList();
-        updateLeftList();
+    updateRightList();
+    updateLeftList();
+    loadLolli();
 
-        function openLearn(){
-            window.location.href ="lernen-deuEng.html";
+    function openLearn() {
+        window.location.href = "lernen-deuEng.html";
+    }
+    function getLeftListFromLocalStorage() {
+        let items = localStorage.getItem('ListdeuEng');
+
+        if (items == null || items == '') {
+            items = [];
+        } else {
+            items = items.split(',');
         }
-        function getLeftListFromLocalStorage(){
-            let items = localStorage.getItem('ListdeuEng');
+        return items;
+    }
+    function getRightListFromLocalStorage() {
+        let items = localStorage.getItem('ListEng');
 
-            if (items == null || items == '') {
-                items = [];   
-            }else {
-                items = items.split(','); 
-            }
-            return items;
+        if (items == null || items == '') {
+            items = [];
+        } else {
+            items = items.split(',');
         }
-        function getRightListFromLocalStorage(){
-            let items = localStorage.getItem('ListEng');
+        return items;
+    }
+    function vokabelToDB() {
+        let vokabelLeft = document.getElementById('input-left').value;
+        let vokabelRight = document.getElementById('input-right').value;
 
-            if (items == null || items == ''){
-                items = [];
-            }else {
-                items = items.split(',');
-            }
-            return items;
-        }
-        function vokabelToDB(){
-            let vokabelLeft = document.getElementById('input-left').value;
-            let  vokabelRight = document.getElementById('input-right').value;
-
-            if (vokabelLeft != null) {
-               vokabelListdeuEng.push(vokabelLeft);
-               localStorage.setItem('ListdeuEng', vokabelListdeuEng);
-            } 
-            if (vokabelRight != null){
-                vokabelListEng.push(vokabelRight);
-                localStorage.setItem('ListEng', vokabelListEng)
-            }
-        }
-        function updateLeftList() {
-             document.getElementById('ListdeuEng').innerHTML = '';
-             
-            for (let index = 0; index < vokabelListdeuEng.length; index += 1){
-                 document.getElementById('ListdeuEng').innerHTML += '<li>' + vokabelListdeuEng[index] +
-                    '<button onclick = "removeItem('+ index +'); updateLeftList(); updateRightList();" class="edit">x</button></li>';
-
-            }
-         } 
-         function updateRightList() {
-             document.getElementById('ListEng').innerHTML = '';
-             
-            for (let index = 0; index < vokabelListEng.length; index += 1){
-                 document.getElementById('ListEng').innerHTML += '<li>' + vokabelListEng[index] +'</li>';
-
-            }
-         } 
-         function removeItem(itemIndex) {
-            vokabelListdeuEng.splice(itemIndex, 1);
-            vokabelListEng.splice(itemIndex, 1);
+        if (vokabelLeft != null) {
+            vokabelListdeuEng.push(vokabelLeft);
             localStorage.setItem('ListdeuEng', vokabelListdeuEng);
-            localStorage.setItem('ListEng', vokabelListEng);
-         }
-    </script>
+        }
+        if (vokabelRight != null) {
+            vokabelListEng.push(vokabelRight);
+            localStorage.setItem('ListEng', vokabelListEng)
+        };
+        document.getElementById('input-left').value = "";
+        document.getElementById('input-right').value = "";
+    }
+    function updateLeftList() {
+        document.getElementById('ListdeuEng').innerHTML = '';
+
+        for (let index = 0; index < vokabelListdeuEng.length; index += 1) {
+            document.getElementById('ListdeuEng').innerHTML += '<li>' + vokabelListdeuEng[index] +
+                '<button onclick = "removeItem(' + index + '); updateLeftList(); updateRightList();" class="edit">x</button></li>';
+
+        }
+    }
+    function updateRightList() {
+        document.getElementById('ListEng').innerHTML = '';
+
+        for (let index = 0; index < vokabelListEng.length; index += 1) {
+            document.getElementById('ListEng').innerHTML += '<li>' + vokabelListEng[index] + '</li>';
+
+        }
+    }
+    function removeItem(itemIndex) {
+        vokabelListdeuEng.splice(itemIndex, 1);
+        vokabelListEng.splice(itemIndex, 1);
+        localStorage.setItem('ListdeuEng', vokabelListdeuEng);
+        localStorage.setItem('ListEng', vokabelListEng);
+    }
+</script>
+
 </html>

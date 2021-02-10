@@ -3,11 +3,13 @@
         <meta charset="utf-8"/>
         <title>Vokabulator</title>
         <link rel="stylesheet" href="stylesheet.css">
+        <script src="lolli-func.js"></script>
         <link rel="icon" href="assets/AnneFrankSchule-Bargteheide_Vokabulator_Logo_03022021.png">
         <div class="navbar">
             <div class="icon"></div>
             <div class="headline-div"><a href="Vokabulator.html" class="font">Vokabulator</a></div>
             <div class="placeholder"></div>
+            <div class="lolli-count-div"></div>
             <div class="navbar_btn-div">
                 <button class="fra-deu sprache btn-nav">Französisch - Deutsch</button>
                 <button class="spa-deu sprache btn-nav">Spanisch - Deutsch</button>
@@ -19,8 +21,11 @@
     <body>
         <div class="placeholder_body">
             <div class="navigation-btn-div">
-                <button class="navigation-btn btn" onclick="goBack()">Zurück</button>
-                <button class="swap-btn btn" onclick="swap()">Eng -> Deu</button>
+                <p>Lern-Abfrage</p>
+                <div class="navigation-btn-div-div">
+                    <button class="navigation-btn btn" onclick="goBack()">Zurück</button>
+                    <button class="swap-btn btn" onclick="swap()">Eng -> Deu</button>
+                </div>    
         </div>
         </div>
         <div class="lernen-div">
@@ -35,14 +40,16 @@
         </div>
         <div id=winner class="winner">
             <div class="result-div">
-                <p style="font-size: 42px; font-weight: 500; text-decoration: underline;">Right!</p>
-                <p style="font-size: 24px;">You got it!</p>
+                <p style="font-size: 42px; font-weight: 500; text-decoration: underline;">Richtig!</p>
+                <p style="font-size: 24px;">Du hast es!</p>
+                <p style="font-size: 18px; margin-top: 3px;">Du bekommst einen Lolli dazu.</p>
             </div>    
         </div>
         <div id="looser" class="looser">
             <div class="result-div">
-                <p style="font-size: 42px; font-weight: 500; text-decoration: underline;">Wrong!</p>
-                <p style="font-size: 24px;">Try it next Time</p>
+                <p style="font-size: 42px; font-weight: 500; text-decoration: underline;">Falsch!</p>
+                <p style="font-size: 24px;">Nächstes mal ist es richtig.</p>
+                <p style="font-size: 18px; margin-top: 3px;">Wir ziehe dir einen Lolli ab.</p>
             </div> 
         </div>
     </body>
@@ -51,7 +58,8 @@
         let index = 0;
 
 
-        getVokabel()
+        getVokabel();
+        loadLolli();
 
         function goBack(){
             window.location.href ="Vokabulator.html"
@@ -75,11 +83,13 @@
                 setTimeout(()=>{document.getElementById('winner').style.display = "none";},3000); 
                 document.getElementById('lernenVokabelInput').value = "";
                 getVokabel();
+                addLolli();
             } else{
                 document.getElementById('looser').style.display = "block";
                 setTimeout(()=>{document.getElementById('looser').style.display = "none";},3000); 
                 document.getElementById('lernenVokabelInput').value = "";
                 getVokabel();
+                removeLolli();
             }
         }
     </script>
