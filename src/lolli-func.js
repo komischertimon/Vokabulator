@@ -1,6 +1,9 @@
 let lolliCount = 0;
 
-console.log(lolliCount)
+try {
+    lolliCount = localStorage.getItem('lolli-count');
+}catch(err){
+}
 
 function addLolli() {
     lolliCount ++;

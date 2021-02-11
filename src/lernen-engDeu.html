@@ -2,19 +2,18 @@
     <head>
         <meta charset="utf-8"/>
         <title>Vokabulator</title>
-        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="stylesheet.css">    
+        <script src="changeName-func.js"></script>
+        <script src="navigation-func.js"></script>
         <script src="lolli-func.js"></script>
-        <link rel="icon" href="assets/AnneFrankSchule-Bargteheide_Vokabulator_Logo_03022021.png">
+        <script src="https://kit.fontawesome.com/6e6da36d3a.js" crossorigin="anonymous"></script>        <link rel="icon" href="assets/LogoblaumitSchrift.png">
         <div class="navbar">
             <div class="icon"></div>
             <div class="headline-div"><a href="Vokabulator.html" class="font">Vokabulator</a></div>
             <div class="placeholder"></div>
             <div class="lolli-count-div"></div>
             <div class="navbar_btn-div">
-                <button class="fra-deu sprache btn-nav">Französisch - Deutsch</button>
-                <button class="spa-deu sprache btn-nav">Spanisch - Deutsch</button>
-                <button class="ita-deu sprache btn-nav">Italienisch -  Deutsch</button>
-                <button class="eng-deu sprache btn-nav choosen">Englisch - Deutsch</button>
+                <button class="eng-deu sprache btn-nav choosen"><p>Deutsch - </p><p id="NameNav" class="nav-Name"></p></button>
             </div>
         </div>
     </head>
@@ -24,7 +23,7 @@
                 <p>Lern-Abfrage</p>
                 <div class="navigation-btn-div-div">
                     <button class="navigation-btn btn" onclick="goBack()">Zurück</button>
-                    <button class="swap-btn btn" onclick="swap()">Eng -> Deu</button>
+                    <button class="swap-btn btn" onclick="swap()"><i class="fas fa-exchange-alt"></i></button>
                 </div>
             </div>
         </div>
@@ -34,7 +33,7 @@
                 <div class="inputline-div"><input type="text" id="lernenVokabelInput"><button onclick="correct()">></button></div>
             </div>
             <div class="lernen2">
-                <div class="lernen-headline"><p>Englisch</p></div>                
+                <div class="lernen-headline"><p id="NameLernen"></p><button onclick="changeName();" class="changeName-btn">...</button></div>                
                 <div class="vokabelline-div"><p id="lernenVokabelEng"></p></div>
             </div>
         </div>
@@ -56,7 +55,7 @@
         let index = 0;
 
         getVokabel();
-        loadLolli();
+        loadName();
 
         function goBack(){
             window.location.href ="Vokabulator.html"

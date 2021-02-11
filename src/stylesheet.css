@@ -8,20 +8,26 @@
     text-decoration: none;
 }
 .choosen{
-    background-color: rgb(232, 213, 0) !important;
+    background-color: rgb(6, 9, 115) !important;
 }
 .btn:hover{
     background-color: lightgrey;
 }
 .btn-yellow:hover{
- background-color: rgb(185, 170, 0);
+ background-color: #3282a1;
 }
 .btn-nav{
     border-radius: 8px;
+    /* min-width: 15vw; */
 }
 .btn-nav:hover{
-    background-color: rgba(232, 213, 0, 0.61);
+    background-color: rgba(6, 9, 115, 0.6);
     
+}
+.nav-Name{
+    min-width: 10vw;
+    max-width: 25vw;
+    min-height: 20px;    
 }
 .navbar{
     height: 13vh;
@@ -29,12 +35,12 @@
     display: flex;
     flex-flow: row;
     align-items: center;
-    background-color: rgb(98, 209, 75);
+    background-color: #48c0ef;
 }
 .icon{
     width: 10vw;
     height: 100%;
-    background-image: url(assets/AnneFrankSchule-Bargteheide_Vokabulator_Logo_ohneSchrift.png);
+    background-image: url(assets/LogoblauohneSchrift.png);
     background-size: cover;
     background-position: center;
 }
@@ -44,7 +50,7 @@
     font-weight: 500;
 }
 .placeholder{
-    width: 45vw;
+    width: 90%;
 }
 .placeholder_body{
     width: 100vw;
@@ -111,6 +117,7 @@
     width: 55vw;
     display: flex;
     flex-flow: row;
+    justify-content: flex-end;
 }
 .sprache{
     font-size: 18px;
@@ -144,7 +151,8 @@
     padding-left: 12px;
     padding-right: 12px;
     margin-left: 20px;
-    background-color: rgb(232, 213, 0);
+    color: white;
+    background-color: #060973;
     border: none;
     box-shadow: 3px 4px 4px grey;
 }
@@ -176,16 +184,25 @@
 .lernen-headline{
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 12%;
     color: white;
     font-size: 36px;
     font-weight: 600;
     text-decoration: underline;
 }
+.changeName-btn{
+    height: 3vh;
+    width: 3vh;
+    margin-left: 25px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 3px 4px 4px grey;
+}
 .lernen1{
     height: 60vh;
     width: 35vw;
-    background-color: grey;
+    background-color: darkgrey;
 }   
 .vokabelline-div{
     width: 100%;
@@ -200,7 +217,7 @@
 .lernen2{
     height: 60vh;
     width: 35vw;
-    background-color: grey;
+    background-color: darkgrey;
 } 
 .inputline-div{
     width: 100%;
