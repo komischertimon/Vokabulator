@@ -23,7 +23,7 @@
                 <p>Lern-Abfrage</p>
                 <div class="navigation-btn-div-div">
                     <button class="navigation-btn btn" onclick="goBack()">Zurück</button>
-                    <button class="swap-btn btn" onclick="swap()"><i class="fas fa-exchange-alt"></i></button>
+                    <button class="swap-btn btn" onclick="swapdeuEng()"><i class="fas fa-exchange-alt"></i></button>
                 </div>
             </div>
         </div>
@@ -57,12 +57,6 @@
         getVokabel();
         loadName();
 
-        function goBack(){
-            window.location.href ="Vokabulator.html"
-        }
-        function swap(){
-            window.location.href ="lernen-deuEng.html"
-        }
         function getVokabel(){
             let lernenVokabelEng = localStorage.getItem('ListEng').split(",");
             index = Math.floor(Math.random()*lernenVokabelEng.length);

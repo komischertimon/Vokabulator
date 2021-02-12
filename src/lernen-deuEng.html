@@ -4,6 +4,7 @@
         <title>Vokabulator</title>
         <link rel="stylesheet" href="stylesheet.css">
         <script src="changeName-func.js"></script>
+        <script src="navigation-func.js"></script>
         <script src="lolli-func.js"></script>
         <script src="https://kit.fontawesome.com/6e6da36d3a.js" crossorigin="anonymous"></script>        
         <link rel="icon" href="assets/LogoblaumitSchrift.png">
@@ -24,7 +25,7 @@
                 <p>Lern-Abfrage</p>
                 <div class="navigation-btn-div-div">
                     <button class="navigation-btn btn" onclick="goBack()">Zurück</button>
-                    <button class="swap-btn btn" onclick="swap()"><i class="fas fa-exchange-alt"></i></button>
+                    <button class="swap-btn btn" onclick="swapengDeu()"><i class="fas fa-exchange-alt"></i></button>
                 </div>    
         </div>
         </div>
@@ -61,12 +62,6 @@
         getVokabel();
         loadName();
 
-        function goBack(){
-            window.location.href ="Vokabulator.html"
-        }
-        function swap(){
-            window.location.href ="lernen-engDeu.html"
-        }
         function getVokabel(){
             let lernenVokabelDeu = localStorage.getItem('ListdeuEng').split(",");
             index = Math.floor(Math.random()*lernenVokabelDeu.length);
